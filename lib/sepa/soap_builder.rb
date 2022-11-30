@@ -28,6 +28,7 @@ module Sepa
       @signing_private_key         = params[:signing_private_key]
       @status                      = params[:status]
       @target_id                   = params[:target_id]
+      @channel_type                = params[:channel_type]
 
       @application_request         = ApplicationRequest.new params
       @header_template             = load_header_template

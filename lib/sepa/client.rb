@@ -76,6 +76,14 @@ module Sepa
     #   '1234'
     attr_accessor :pin
 
+    # Used for Nordea Corporate Access channel
+    #
+    # @return [String]
+    # @example
+    #   'corporate_access'
+
+    attr_accessor :channel_type
+
     # Signing private key which is used to sign the request
     #
     # @return [String]
@@ -315,7 +323,11 @@ module Sepa
       # @return [String] Path to the WSDL file of the bank and command
       def wsdl
         file = if STANDARD_COMMANDS.include?(command)
-                 "wsdl_#{bank}"
+                 if @bank == :nordea && @channel_type == :corporate_access
+                   "wsdl_nordea_corporate_access"
+                 else
+                   "wsdl_#{bank}"
+                 end
                else
                  "wsdl_#{bank}_cert"
                end
