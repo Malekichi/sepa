@@ -8,7 +8,7 @@ module Sepa
     # @return [String] the calculated digest
     def calculate_digest(node, digest_method: :sha1, canonicalization_mode: Nokogiri::XML::XML_C14N_EXCLUSIVE_1_0)
       digest =
-        case digest_method
+        case digest_method.to_sym
         when :sha256
           OpenSSL::Digest::SHA256.new
         else
@@ -28,7 +28,7 @@ module Sepa
     # @return [String] the base64 encoded signature
     def calculate_signature(node, digest_method: :sha1, canonicalization_mode: Nokogiri::XML::XML_C14N_EXCLUSIVE_1_0)
       digest =
-        case digest_method
+        case digest_method.to_sym
         when :sha256
           OpenSSL::Digest::SHA256.new
         else

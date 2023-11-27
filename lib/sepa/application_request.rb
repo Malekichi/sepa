@@ -224,7 +224,7 @@ module Sepa
           get_service_certificates
         ).include? @command
 
-        digest_method = @bank == :nordea ? 'sha256' : 'sha1'
+        digest_method = @bank == :nordea ? :sha256 : :sha1
 
         if @bank == :nordea
           digest_method_element = @application_request.at_css("dsig|DigestMethod", 'dsig' => 'http://www.w3.org/2000/09/xmldsig#')
