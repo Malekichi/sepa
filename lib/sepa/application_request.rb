@@ -226,7 +226,7 @@ module Sepa
 
         digest_method = :sha256
 
-        puts "bank is #{@bank}"
+        puts "Bank is #{@bank}"
 
         digest_method_element = @application_request.at_css("dsig|DigestMethod", 'dsig' => 'http://www.w3.org/2000/09/xmldsig#')
         digest_method_element['Algorithm'] = 'http://www.w3.org/2001/04/xmlenc#sha256'
