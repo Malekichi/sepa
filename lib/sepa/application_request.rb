@@ -242,6 +242,8 @@ module Sepa
                                calculate_signature(@application_request.at_css("dsig|SignedInfo", 'dsig' => 'http://www.w3.org/2000/09/xmldsig#'),
                                                    digest_method: digest_method, canonicalization_mode: canonicalization_mode))
         add_value_to_signature('X509Certificate', format_cert(@own_signing_certificate))
+
+        puts @application_request.to_xml
       end
 
       def add_node_after(node, new_node, content:)
