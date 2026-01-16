@@ -150,7 +150,7 @@
 	</wsdl:binding>
 	<wsdl:service name="OPCertificateService">
 		<wsdl:port binding="tns:OPCertificateServiceHttpBinding" name="OPCertificateServiceHttpPort">
-			<soap:address location="https://wsk.op.fi/services/OPCertificateService"/>
+			<soap:address location="https://wsk.op.fi/services/OPCertificateServiceV2"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
